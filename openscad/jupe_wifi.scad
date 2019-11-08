@@ -47,99 +47,119 @@ ze2=hj/2;//Coordonnée z2 du percage
 
 //module aeration
 x=0; y=0; z=0; y1=0; h1=0; r1=0; 
-module air (x,y,z,y1,h1,r1){
-  translate([x,y,z]) hull() {
-    translate([0,y1,0]) cylinder(h = h1, r = r1, center = true);
-    translate([0,-y1,0]) cylinder(h = h1, r = r1, center = true);
-    cylinder(h = h1, r = r1, center = true);
-}
+module air (x,y,z,y1,h1,r1)
+{
+	translate([x,y,z]) hull() 
+	{
+   	 	translate([0,y1,0]) cylinder(h = h1, r = r1, center = true);
+    		translate([0,-y1,0]) cylinder(h = h1, r = r1, center = true);
+    		cylinder(h = h1, r = r1, center = true);
+	}
 }//fin du module air
+
 //Début module percement de la jupe
 percement=true;
-module per_jupe (percement){//Percage des trous de fixation :
-translate([L2/2,l2/2,hj/2])cylinder(h = hj/2, r = r, center = true);
-translate([-L2/2,-l2/2,hj/2])cylinder(h = hj/2, r = r, center = true);
-translate([-L2/2,l2/2,hj/2])cylinder(h = hj/2, r = r, center = true);
-translate([L2/2,-l2/2,hj/2])cylinder(h = hj/2, r = r, center = true);
-translate([-L2/2,0,hj/2])cylinder(h = hj/2, r = r, center = true);
-//Percage du trou central
-//translate([0,0,hj/2])cylinder(h = hj/2, r = 3.5*r, center = true);
-//coupe pour representation de l'assemblage :
-  //  translate([0,-l1/2,-e])cube(size = [L1,l1/2,hj], center = true);
+module per_jupe (percement)
+{
+	//Percage des trous de fixation :
+	translate([L2/2,l2/2,hj/2])cylinder(h = hj/2, r = r, center = true);
+	translate([-L2/2,-l2/2,hj/2])cylinder(h = hj/2, r = r, center = true);
+	translate([-L2/2,l2/2,hj/2])cylinder(h = hj/2, r = r, center = true);
+	translate([L2/2,-l2/2,hj/2])cylinder(h = hj/2, r = r, center = true);
+	translate([-L2/2,0,hj/2])cylinder(h = hj/2, r = r, center = true);
+	//Percage du trou central
+	//translate([0,0,hj/2])cylinder(h = hj/2, r = 3.5*r, center = true);
+	//coupe pour representation de l'assemblage :
+  	//  translate([0,-l1/2,-e])cube(size = [L1,l1/2,hj], center = true);
 
-//Ouverture pour le passage du cable du thermocouple dans la goulotte :
-minkowski(){
-	translate([-((L1/2)+(1.5*e)),0,0])cube(size = [2*r,r/2,1.1*hj], center = true);
-	cylinder(h = hj/2, r = e, center = true);
+	//Ouverture pour le passage du cable du thermocouple dans la goulotte :
+	minkowski()
+	{
+		translate([-((L1/2)+(1.5*e)),0,0])cube(size = [2*r,r/2,1.1*hj], center = true);
+		cylinder(h = hj/2, r = e, center = true);
 	}
 
-//Ouverture pour ventilation de la version USB
-if (usb) {
-translate([0,0,hj/2])cylinder(h = hj/2, r = L2/2, center = true);
-}
-if (v433) {
-translate([0,0,hj/2])scale([1.3,1,1])cylinder(h = hj/2, r = 10, center = true);
-//air (-L2/2,0,(hj/2)-e/2,6,1.1*e,1.5);
-//air (-1+L2/2,0,(hj/2)-e/2,6,1.1*e,1.5);
-air (4+L2/2,0,(hj/2)-e/2,6,1.1*e,1.5);
-//trous pour sangler la batterie avec serre câble
-//translate([L2/2,0,(hj/2)-e/2])cube(size = [1.5,14,1.1*e], center = true);
-//translate([-L2/2,0,(hj/2)-e/2])cube(size = [1.5,14,1.1*e], center = true);
-}
-if (lamage) {
-//Lamage et percage des 4 entretoises :
-translate([xe,ye,(ze1*0.9)])cylinder(h = e, r = 1.9*r, center = true);//Lamage
-translate([xe,ye,(ze1*0.9)])rotate([0,0,45])cube(size = [3*e,e,e], center = true);//Dégagement
-translate([xe,ye,ze2])cylinder(h = 2*e, r = r, center = true);//Percage
-translate([-xe,ye,(ze1*0.9)])cylinder(h = e, r = 1.9*r, center = true);//Lamage
-translate([-xe,ye,(ze1*0.9)])rotate([0,0,-45])cube(size = [3*e,e,e], center = true);//Dégagement
-translate([-xe,ye,ze2])cylinder(h = 2*e, r = r, center = true);//Percage
-translate([xe,-ye,(ze1*0.9)])cylinder(h = e, r = 1.9*r, center = true);//Lamage
-translate([xe,-ye,(ze1*0.9)])rotate([0,0,-45])cube(size = [3*e,e,e], center = true);//Dégagement
-translate([xe,-ye,ze2])cylinder(h = 2*e, r = r, center = true);//Percage
-translate([-xe,-ye,(ze1*0.9)])cylinder(h = e, r = 1.9*r, center = true);//Lamage
-translate([-xe,-ye,(ze1*0.9)])rotate([0,0,45])cube(size = [3*e,e,e], center = true);//Dégagement
-translate([-xe,-ye,ze2])cylinder(h = 2*e, r = r, center = true);//Percage
-}//fin if
+	//Ouverture pour ventilation de la version USB
+	if (usb) 
+	{
+		translate([0,0,hj/2])cylinder(h = hj/2, r = L2/2, center = true);
+	}
+	if (v433) 
+	{
+		translate([0,0,hj/2])scale([1.3,1,1])cylinder(h = hj/2, r = 10, center = true);
+		//air (-L2/2,0,(hj/2)-e/2,6,1.1*e,1.5);
+		//air (-1+L2/2,0,(hj/2)-e/2,6,1.1*e,1.5);
+		air (4+L2/2,0,(hj/2)-e/2,6,1.1*e,1.5);
+		//trous pour sangler la batterie avec serre câble
+		//translate([L2/2,0,(hj/2)-e/2])cube(size = [1.5,14,1.1*e], center = true);
+		//translate([-L2/2,0,(hj/2)-e/2])cube(size = [1.5,14,1.1*e], center = true);
+	}
+	if (lamage)
+	{
+		//Lamage et percage des 4 entretoises :
+		translate([xe,ye,(ze1*0.9)])cylinder(h = e, r = 1.9*r, center = true);//Lamage
+		translate([xe,ye,(ze1*0.9)])rotate([0,0,45])cube(size = [3*e,e,e], center = true);//Dégagement
+		translate([xe,ye,ze2])cylinder(h = 2*e, r = r, center = true);//Percage
+		translate([-xe,ye,(ze1*0.9)])cylinder(h = e, r = 1.9*r, center = true);//Lamage
+		translate([-xe,ye,(ze1*0.9)])rotate([0,0,-45])cube(size = [3*e,e,e], center = true);//Dégagement
+		translate([-xe,ye,ze2])cylinder(h = 2*e, r = r, center = true);//Percage
+		translate([xe,-ye,(ze1*0.9)])cylinder(h = e, r = 1.9*r, center = true);//Lamage
+		translate([xe,-ye,(ze1*0.9)])rotate([0,0,-45])cube(size = [3*e,e,e], center = true);//Dégagement
+		translate([xe,-ye,ze2])cylinder(h = 2*e, r = r, center = true);//Percage
+		translate([-xe,-ye,(ze1*0.9)])cylinder(h = e, r = 1.9*r, center = true);//Lamage
+		translate([-xe,-ye,(ze1*0.9)])rotate([0,0,45])cube(size = [3*e,e,e], center = true);//Dégagement
+		translate([-xe,-ye,ze2])cylinder(h = 2*e, r = r, center = true);//Percage
+	}//fin if
 }//fin module percement de la jupe
 
 //Début module jupe
 jupe(percement);
-module jupe(percement){
-color([151/255, 191/255, 13/255])rotate([0,0,0]){
-//Construction de la jupe
-difference(){
-
-//Contruction du grand cube et de sa goulotte :
-union(){
-minkowski(){
-	cube(size = [L1,l1,hj/2], center = true);
-	cylinder(h = hj/2, r = 2*e, center = true);
-	}//minkowski
-translate([-((L1/2)+(3*e/2)),0,0])cylinder(h = hj, r = 5*r, center = true); //Goulotte
-
-//Ajouter les 4 cylindres des entretoises
-if (ent) {
-translate([xe,ye,ze2])cylinder(h = e, r = 2*r, center = true);
-translate([-xe,ye,ze2])cylinder(h = e, r = 2*r, center = true);
-translate([xe,-ye,ze2])cylinder(h = e, r = 2*r, center = true);
-translate([-xe,-ye,ze2])cylinder(h = e, r = 2*r, center = true);
-}
-}//union
-//Construction du petit cube :
-difference(){
-translate([0,0,-e])minkowski(){
-cube(size = [L1,l1,hj/2], center = true);
-cylinder(h = hj/2, r = e, center = true);
-}//minkowski
-}//difference
-if (percement) {
-per_jupe ();
-}//if
-}//difference
-}//rotate
-if (usb) {
-translate([0.99*(2*e+L1/2), -13.5, -5])rotate([90, 0, 90])linear_extrude(height=1, scale=[1,1])text("USB");}
-if (v433) {
-translate([0.99*(2*e+L1/2), -14, -5])rotate([90, 0, 90])linear_extrude(height=1, scale=[1,1])text("WIFI");}
+module jupe(percement)
+{
+	color([151/255, 191/255, 13/255])rotate([0,0,0])
+	{
+		//Construction de la jupe
+		difference()
+		{
+			//Contruction du grand cube et de sa goulotte :
+			union()
+			{
+				minkowski()
+				{
+					cube(size = [L1,l1,hj/2], center = true);
+					cylinder(h = hj/2, r = 2*e, center = true);
+				}//minkowski
+				translate([-((L1/2)+(3*e/2)),0,0])cylinder(h = hj, r = 5*r, center = true); //Goulotte
+				//Ajouter les 4 cylindres des entretoises
+				if (ent) 
+				{
+					translate([xe,ye,ze2])cylinder(h = e, r = 2*r, center = true);
+					translate([-xe,ye,ze2])cylinder(h = e, r = 2*r, center = true);
+					translate([xe,-ye,ze2])cylinder(h = e, r = 2*r, center = true);
+					translate([-xe,-ye,ze2])cylinder(h = e, r = 2*r, center = true);
+				}
+			}//union
+			//Construction du petit cube :
+			difference()
+			{
+				translate([0,0,-e])minkowski()
+				{
+					cube(size = [L1,l1,hj/2], center = true);
+					cylinder(h = hj/2, r = e, center = true);
+				}//minkowski
+			}//difference
+			if (percement) 
+			{
+				per_jupe ();
+			}//if
+		}//difference
+	}//rotate
+	if (usb) 
+	{
+		translate([0.99*(2*e+L1/2), -13.5, -5])rotate([90, 0, 90])linear_extrude(height=1, scale=[1,1])text("USB");
+	}
+	if (v433) 
+	{
+		translate([0.99*(2*e+L1/2), -14, -5])rotate([90, 0, 90])linear_extrude(height=1, scale=[1,1])text("WIFI");
+	}
 }//module jupe

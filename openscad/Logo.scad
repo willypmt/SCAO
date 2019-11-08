@@ -27,7 +27,7 @@ $fn=100;
 //Construction du logo
 //Construction de la plateforme
 difference()
-	{
+{
 	//Construction du cylindre plateforme
 	translate([0,0,0])cylinder(e,r=Rl,center=true);
 	//Decoupe de la fenêtre USB
@@ -35,16 +35,17 @@ difference()
 	//cylinder(r=3,h=e);
 	//}
 	difference()
-		{
-		translate([25,0,0])cube([50,80,10],center=true);
-		translate([-75,0,0])cylinder(r=100,h=12,center=true);
-		}
-	difference()
-		{
-		translate([-25,0,0])cube([50,80,10],center=true);
-		translate([75,0,0])cylinder(r=100,h=12,center=true);
-		}
+	{
+	translate([25,0,0])cube([50,80,10],center=true);
+	translate([-75,0,0])cylinder(r=100,h=12,center=true);
 	}
+	difference()
+	{
+	translate([-25,0,0])cube([50,80,10],center=true);
+	translate([75,0,0])cylinder(r=100,h=12,center=true);
+	}
+	translate([0,0,e])rotate([0,0,90])scale([0.06,0.06,1])linear_extrude(height = 5, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/cuisinier.dxf", layer = "0");};
+}
 
 L=y1;
 l=x1;

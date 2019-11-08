@@ -25,7 +25,9 @@ translate([20,0,0])rotate([0,0,0])
 //couvercle (21) sous l'entretoise en alu
 translate([0,0,z21+$t*(z21_e-z21)])color( [190/255, 190/255, 190/255]){import("Couvercle.stl");}
 //Jupe (8)
-#translate([0,0,z8+$t*(z8_e-z8)])color( vert){import("jupe_wifi.stl");}
+#translate([0,0,z8+$t*(z8_e-z8)])color(vert){import("jupe_wifi.stl");}
+//Capot ()
+translate([0,0,25])rotate([180,0,0])color(vert){import("Capot.stl");}
 //entretoises M3 (9) 4 entretoises sur l'isolateur (2 avec tige)
 color( gris)ent_M(2.5,5,6,5,false,L2/2,l2/2,z9+$t*(z9_e-z9));
 color( gris)ent_M(2.5,5,0,5,false,-L2/2,-l2/2,z9+$t*(z9_e-z9));
@@ -97,26 +99,33 @@ rond_M(2, 1, -x1/2,y1/2, 34.1);
 rond_M(2, 1, x1/2,-y1/2, 34.1);
 rond_M(2, 1, -x1/2,-y1/2, 34.1);
 //Entretoise M2 () 4 entre le circuit imp et le MKR WIFI + 4 entre le MKR WIFI et le TOP
-rotate([0,0,0])
-	{
-	color( gris)ent_M(2,8,0,3.8,true,x1/2,y1/2,27.2);
-	color( gris)ent_M(2,8,0,3.8,true,-x1/2,y1/2,27.2);
-	color( gris)ent_M(2,8,0,3.8,true,x1/2,-y1/2,27.2);
-	color( gris)ent_M(2,8,0,3.8,true,-x1/2,-y1/2,27.2);
-	color( gris)ent_M(2,10,0,3.8,true,x1/2,y1/2,39.7);
-	color( gris)ent_M(2,10,0,3.8,true,-x1/2,y1/2,39.7);
-	color( gris)ent_M(2,10,0,3.8,true,x1/2,-y1/2,39.7);
-	color( gris)ent_M(2,10,0,3.8,true,-x1/2,-y1/2,39.7);
-	}
+color( gris)ent_M(2,8,0,3.8,true,x1/2,y1/2,27.2);
+color( gris)ent_M(2,8,0,3.8,true,-x1/2,y1/2,27.2);
+color( gris)ent_M(2,8,0,3.8,true,x1/2,-y1/2,27.2);
+color( gris)ent_M(2,8,0,3.8,true,-x1/2,-y1/2,27.2);
+color( gris)ent_M(2,10,5,3.8,true,x1/2,y1/2,39.7);
+color( gris)ent_M(2,10,5,3.8,true,-x1/2,y1/2,39.7);
+color( gris)ent_M(2,10,5,3.8,true,x1/2,-y1/2,39.7);
+color( gris)ent_M(2,10,5,3.8,true,-x1/2,-y1/2,39.7);
+//Vis M2 () 4 vis sur le TOP
+color( gris)vis_M(2, 5, 1.5, true, x1/2,y1/2, hauteur-5.5);
+color( gris)vis_M(2, 5, 1.5, true, x1/2,-y1/2, hauteur-5.5);
+color( gris)vis_M(2, 5, 1.5, true, -x1/2,y1/2, hauteur-5.5);
+color( gris)vis_M(2, 5, 1.5, true, -x1/2,-y1/2, hauteur-5.5);
+//Vis M2 () 4 vis sous le circuit imp
+color( gris)vis_M(2, 5, 1.5, false, x1/2,y1/2,23.3);
+color( gris)vis_M(2, 5, 1.5, false, x1/2,-y1/2,23.3);
+color( gris)vis_M(2, 5, 1.5, false, -x1/2,y1/2,23.3);
+color( gris)vis_M(2, 5, 1.5, false, -x1/2,-y1/2,23.3);
 //TOP () entraxe du MKR WIFI
-hauteur=50;
-#translate([0,0,hauteur])rotate([0,0,90])color( vert){import("top.stl");}
+hauteur=49.5;
+translate([0,0,hauteur])rotate([0,0,90])color(orange){import("top.stl");}
 //LOGO () monté sur le TOP
-translate([0,0,hauteur+7])rotate([0,0,90])color( vert){import("Logo.stl");}
+translate([0,0,hauteur+7])rotate([0,0,90])color(vert){import("Logo.stl");}
 //SHIELD (Batterie + circuit imp) + MKR
 translate([-0.62,0,21.5])rotate([0,0,-180])scale([25.4,25.4,25.4])
-	{
-		shield(); 
-		translate([0,0,0.45])MKR();
-	}
+{
+shield(); 
+translate([0,0,0.45])MKR();
+}
 }//translate
