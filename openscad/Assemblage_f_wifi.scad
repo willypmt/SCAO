@@ -27,7 +27,7 @@ translate([0,0,z21+$t*(z21_e-z21)])color( [190/255, 190/255, 190/255]){import("C
 //Jupe (8)
 #translate([0,0,z8+$t*(z8_e-z8)])color(vert){import("jupe_wifi.stl");}
 //Capot ()
-translate([0,0,25])rotate([180,0,0])color(vert){import("Capot.stl");}
+*translate([0,0,25])rotate([180,0,0])color(vert){import("Capot.stl");}
 //entretoises M3 (9) 4 entretoises sur l'isolateur (2 avec tige)
 color( gris)ent_M(2.5,5,6,5,false,L2/2,l2/2,z9+$t*(z9_e-z9));
 color( gris)ent_M(2.5,5,0,5,false,-L2/2,-l2/2,z9+$t*(z9_e-z9));

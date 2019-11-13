@@ -36,4 +36,6 @@ difference()
 	translate([-L2/2,0,hj/2])cylinder(h = hj/2, r = r, center = true);
 	//Percage du trou central
 	translate([0,0,hj/2])cylinder(h = hj/2, r = 3.5*r, center = true);
+	translate([0,0,-10])cube([60,80,30],center=true);
 }//difference
+
