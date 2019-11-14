@@ -119,7 +119,7 @@ color( gris)vis_M(2, 5, 1.5, false, -x1/2,y1/2,23.3);
 color( gris)vis_M(2, 5, 1.5, false, -x1/2,-y1/2,23.3);
 //TOP () entraxe du MKR WIFI
 hauteur=49.5;
-translate([0,0,hauteur])rotate([0,0,90])color(orange){import("top.stl");}
+translate([0,0,hauteur])rotate([0,0,-90])color(orange){import("top.stl");}
 //LOGO () monté sur le TOP
 translate([0,0,hauteur+7])rotate([0,0,90])color(vert){import("Logo.stl");}
 //SHIELD (Batterie + circuit imp) + MKR

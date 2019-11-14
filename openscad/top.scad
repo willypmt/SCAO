@@ -46,13 +46,11 @@ union()
 //"rotate_extrude" "convexity" = 10, qui realise l'extrusion circulaire,
 //"translate" qui exprime le rayon du cercle de revolution,
 //"circle" qui exprime le rayon du cercle de la section du tore.
-//difference(){
 translate([0,10,0])rotate_extrude(angle = 180,convexity = 10)translate([R, 0, 0])circle(r = Rt); //rayon du cercle de la section du tore partie 1
 translate([0, -10,0])rotate_extrude(angle =-180,convexity = 10)translate([R, 0, 0])circle(r = Rt); //rayon du cercle de la section du tore partie 2
 translate([R,0,0]) rotate([90,0,0]) cylinder(r=Rt,h=20,center=true);//Raccordement 1
 translate([-R,0,0]) rotate([90,0,0]) cylinder(r=Rt,h=20,center=true);//Raccordement 2
-//translate([R,0,0])cube(size = [15,12,8*e], center = true);//fenetre USB
-//}
+
 //Construction des 4 cylindres verticaux
 L=y1;
 l=x1;
@@ -69,4 +67,13 @@ Ch(L,-l,atan (L/l));
 }//union
 //creation du plat
 translate([0,0,-2*Rt/2])cube(size = [4*R,4*R,e/2], center = true);
+difference()
+{
+translate([0,55,0])rotate([90,0,0])polyhedron(
+	points=[ [13,13,0],[13,-13,0],[-13,-13,0],[-13,13,0],[0,0,40]  ], 
+	faces=[ [0,1,4],[1,2,4],[2,3,4],[3,0,4],[1,0,3],[2,1,3] ]
+	);//fenetre USB
+translate([0,25,0])cube([30,30,15],center=true);
+}
 }//difference
+
