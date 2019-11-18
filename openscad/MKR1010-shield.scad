@@ -13,7 +13,7 @@ module shield()
 {
 difference() 
 {
-color(orange)linear_extrude(height = 0.05, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/MKR1010-shield.dxf", layer = "shield2");}
+color(orange)linear_extrude(height = 0.05, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/MKR1010-shield.dxf", layer = "shield");}
 linear_extrude(height = 0.06, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/MKR1010-shield.dxf", layer = "trous-fixation");}//trous vis M2
 linear_extrude(height = 0.06, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/MKR1010-shield.dxf", layer = "trous-vis");}//trous vis M3
 translate([0.99,-0.75,0.165])rotate([90,0,0])scale([1/25.4,1/25.4,1/25.4])cube([75,29,9],center=true);//trou batterie

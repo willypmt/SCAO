@@ -71,9 +71,9 @@ translate([x19-5+$t*(x19_e-x19),-3.4,z19+$t*(z19_e-z19)])rotate([0,90,0])color( 
 //Vis de serrage de la masse métallique (20) dans l'entretoise en alu
 translate([-8.5,-3.4,z20+$t*(z20_e-z20)])color( noir)cylinder(4,1.75,1.75,center=true);
 //vis M3 (1) 3 vis sur le circuit imp
-color( gris)vishexa(3,5,1.5,5.5,true,L2/2,l2/2,19.8);
-color( gris)vishexa(3,5,1.5,5.5,true,L2/2,-l2/2,19.8);
-color( gris)vishexa(3,5,1.5,5.5,true,-L2/2,0,19.8);
+color( gris)vis_M(3,5,1.5,true,L2/2,l2/2,19.8);
+color( gris)vis_M(3,5,1.5,true,L2/2,-l2/2,19.8);
+color( gris)vis_M(3,5,1.5,true,-L2/2,0,19.8);
 //color( gris)vishexa(3,5,1.5,5.5,true,-L2/2,-l2/2,20.8);
 //Rondelle M3 () 3 rondelles sous circuit imp
 rond_M(3, 1, L2/2,l2/2, 20.3);
@@ -119,7 +119,7 @@ color( gris)vis_M(2, 5, 1.5, false, -x1/2,y1/2,23.3);
 color( gris)vis_M(2, 5, 1.5, false, -x1/2,-y1/2,23.3);
 //TOP () entraxe du MKR WIFI
 hauteur=49.5;
-translate([0,0,hauteur])rotate([0,0,-90])color(orange){import("top.stl");}
+#translate([0,0,hauteur])rotate([0,0,-90])color(orange){import("top.stl");}
 //LOGO () monté sur le TOP
 translate([0,0,hauteur+7])rotate([0,0,90])color(vert){import("Logo.stl");}
 //SHIELD (Batterie + circuit imp) + MKR
