@@ -1,9 +1,4 @@
-//Ce programme permet la représentation de l'assemblage des différentes pièces de la e-p-433-v2.
-//La représentation est réalisable selon un mode statique ou animé.
-//En mode statique la représentation est réelle.
-//En mode animé la représentation évolue progressivement entre une représentation réelle et une représentation éclatée qui permet d'apercevoir le détail des différentes pièces.
-//The $t variable is used for animation. If you enable the animation frame with view->animate and give a value for "FPS" and "Steps", the "Time" field shows the current value of $t.
-//Pour obtenir le mode statique Temps=t FPS=0 Etapes=0 avec t=0 (sans éclaté) t=1 (éclaté)
+//Ce programme permet la représentation de l'assemblage des différentes pièces de la e-p-433-WIFI
 include <dim1.scad>
 include <z_f.scad>//Ce fichier contient pour zn deux séries de valeurs, celles dédiées à une représentation réelle (non éclatée) et celles dédiées à une représentation éclatée. La variable $t évoquée ci-dessus permet l'évolution progressive entre les 2 valeurs en créant ainsi une animation.
 $fn=100;//nombre de facettes
@@ -18,10 +13,7 @@ vert=[151/255, 191/255, 13/255];
 gris=[112/255, 113/255, 115/255];
 noir=[0/255, 0/255, 0/255];
 bleu=[51/255, 51/255, 255/255];
-//Pour mettre en rotation rotate([0,0,$t*90])
-translate([20,0,0])rotate([0,0,0])
-{
-//Assemblage des pièces de la e-p-433-v2
+
 //couvercle (21) sous l'entretoise en alu
 translate([0,0,z21+$t*(z21_e-z21)])color( [190/255, 190/255, 190/255]){import("Couvercle.stl");}
 //Jupe (8)
@@ -99,14 +91,14 @@ rond_M(2, 1, -x1/2,y1/2, 34.1);
 rond_M(2, 1, x1/2,-y1/2, 34.1);
 rond_M(2, 1, -x1/2,-y1/2, 34.1);
 //Entretoise M2 () 4 entre le circuit imp et le MKR WIFI + 4 entre le MKR WIFI et le TOP
-color( gris)ent_M(2,8,0,3.8,true,x1/2,y1/2,27.2);
-color( gris)ent_M(2,8,0,3.8,true,-x1/2,y1/2,27.2);
-color( gris)ent_M(2,8,0,3.8,true,x1/2,-y1/2,27.2);
-color( gris)ent_M(2,8,0,3.8,true,-x1/2,-y1/2,27.2);
-color( gris)ent_M(2,10,5,3.8,true,x1/2,y1/2,39.7);
-color( gris)ent_M(2,10,5,3.8,true,-x1/2,y1/2,39.7);
-color( gris)ent_M(2,10,5,3.8,true,x1/2,-y1/2,39.7);
-color( gris)ent_M(2,10,5,3.8,true,-x1/2,-y1/2,39.7);
+color( gris)ent_M(2,8,0,4,true,x1/2,y1/2,27.2);
+color( gris)ent_M(2,8,0,4,true,-x1/2,y1/2,27.2);
+color( gris)ent_M(2,8,0,4,true,x1/2,-y1/2,27.2);
+color( gris)ent_M(2,8,0,4,true,-x1/2,-y1/2,27.2);
+color( gris)ent_M(2,10,5,4,true,x1/2,y1/2,39.7);
+color( gris)ent_M(2,10,5,4,true,-x1/2,y1/2,39.7);
+color( gris)ent_M(2,10,5,4,true,x1/2,-y1/2,39.7);
+color( gris)ent_M(2,10,5,4,true,-x1/2,-y1/2,39.7);
 //Vis M2 () 4 vis sur le TOP
 color( gris)vis_M(2, 5, 1.5, true, x1/2,y1/2, hauteur-5.5);
 color( gris)vis_M(2, 5, 1.5, true, x1/2,-y1/2, hauteur-5.5);
@@ -123,9 +115,8 @@ hauteur=49.5;
 //LOGO () monté sur le TOP
 translate([0,0,hauteur+7])rotate([0,0,90])color(vert){import("Logo.stl");}
 //SHIELD (Batterie + circuit imp) + MKR
-translate([-0.62,0,21.5])rotate([0,0,-180])scale([25.4,25.4,25.4])
+translate([0,0,21.5])rotate([0,0,-180])scale([25.4,25.4,25.4])
 {
 shield(); 
 translate([0,0,0.45])MKR();
 }
-}//translate
