@@ -25,7 +25,7 @@ difference()
 	{
 	translate([x,y,0])cylinder(h=2*Rt,r=rc,center=true);
 	translate([x,y,e/2])cylinder(h=1.01*(2*Rt-e),r=rc-e,center=true);//lamage
-	translate([x,y,0])cylinder(h=20,r=r,center=true);//trou
+	translate([x,y,0])cylinder(h=20,r=1.15,center=true);//trou
 	}
 }
 

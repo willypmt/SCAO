@@ -21,7 +21,13 @@ translate([0,0,z21+$t*(z21_e-z21)])color( [190/255, 190/255, 190/255]){import("C
 //Capot ()
 //translate([0,-25,17])rotate([0,0,0])color(bleu){import("Equerre.stl");}
 translate([0,-28.5,23])rotate([0,0,0])color(noir){import("Equerre.stl");}
-translate([0,-28.5,20])rotate([0,180,0])color(noir){import("Equerre.stl");}
+*translate([0,-28.5,20])rotate([0,180,0])color(noir){import("Equerre.stl");}
+//Vis M2 (9) 2 vis sur l'équerre
+color( gris)vis_M(2, 6, 1.5, true, 6,-30.5, 21);
+color( gris)vis_M(2, 6, 1.5, true, -6,-30.5, 21);
+//Ecrou M2 (10) 2 écrous sous équerre
+Ecrou(2, 1.6, 4,6,-30.5, 20);
+Ecrou(2, 1.6, 4,-6,-30.5, 20);
 //entretoises M3 (13+15) 4 entretoises sur l'isolateur (2 avec tige)
 color( gris)ent_M(2.5,5,6,5,false,L2/2,l2/2,z9+$t*(z9_e-z9));
 color( gris)ent_M(2.5,5,0,5,false,-L2/2,-l2/2,z9+$t*(z9_e-z9));

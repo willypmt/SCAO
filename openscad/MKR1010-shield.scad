@@ -37,7 +37,7 @@ translate([0,0,0.185])linear_extrude(height = 0.44, center = true, convexity = 1
 
 //Batterie ()
 //color(rouge)translate([0,-0.1,0.165])linear_extrude(height = 0.28, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/MKR1010-shield.dxf", layer = "bat");}
-color(rouge)minkowski() 
+#color(rouge)minkowski() 
 {
 translate([0,19/25.4,5/25.4])rotate([90,0,0])scale([1/25.4,1/25.4,1/25.4])cube([50-6,29-6,8-6],center=true);//position verticale
 sphere(3/25.4);
