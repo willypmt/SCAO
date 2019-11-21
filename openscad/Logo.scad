@@ -36,15 +36,33 @@ difference()
 	//}
 	difference()
 	{
-	translate([25,0,0])cube([50,80,10],center=true);
-	translate([-75,0,0])cylinder(r=100,h=12,center=true);
+		translate([25,0,0])cube([50,80,10],center=true);
+		translate([-75,0,0])cylinder(r=100,h=12,center=true);
 	}
 	difference()
 	{
-	translate([-25,0,0])cube([50,80,10],center=true);
-	translate([75,0,0])cylinder(r=100,h=12,center=true);
+		translate([-25,0,0])cube([50,80,10],center=true);
+		translate([75,0,0])cylinder(r=100,h=12,center=true);
 	}
-	translate([0,0,e])rotate([0,0,90])scale([0.06,0.06,1])linear_extrude(height = 5, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/cuisinier.dxf", layer = "0");};
+	difference()
+	{
+		translate([0,55,0])rotate([90,0,0])polyhedron(
+			points=[ [13,13,0],[13,-13,0],[-13,-13,0],[-13,13,0],[0,0,40]  ], 
+			faces=[ [0,1,4],[1,2,4],[2,3,4],[3,0,4],[1,0,3],[2,1,3] ]
+			);//fenetre USB
+		translate([0,20,0])cube([30,20,15],center=true);
+	}
+	rotate([0,0,180])difference()
+	{
+		translate([0,55,0])rotate([90,0,0])polyhedron(
+			points=[ [13,13,0],[13,-13,0],[-13,-13,0],[-13,13,0],[0,0,40]  ], 
+			faces=[ [0,1,4],[1,2,4],[2,3,4],[3,0,4],[1,0,3],[2,1,3] ]
+			);//fenetre USB
+		translate([0,20,0])cube([30,20,15],center=true);
+	}
+	//translate([0,0,e])rotate([0,0,90])scale([0.06,0.06,1])linear_extrude(height = 5, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/cuisinier.dxf", layer = "0");};
+	translate([10,-18,e])rotate([0,0,90])scale([0.06,0.06,1])linear_extrude(height = 4, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/a3c.dxf", layer = "0");};
+	translate([10,-18,e])rotate([0,0,90])scale([0.06,0.06,1])linear_extrude(height = 4, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/couteau.dxf", layer = "0");};
 }
 
 L=y1;

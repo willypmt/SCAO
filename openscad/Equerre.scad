@@ -67,8 +67,8 @@ translate([0,9.5,5])difference()//sangle
 {
 minkowski()
 	{
-		cube(size = [50,9,1], center = true);
-		sphere(ep);
+		cube([50,9,2], center = true);
+		sphere(1);
 	}//minkowski
-	cube(size = [50,9,10], center = true);
+	cube([50,9,10], center = true);
 }

@@ -66,8 +66,8 @@ rotate([0,0,-120])cube(size = [r,x,ep], center = true);
 module rond_M(M,ep,xt,yt,zt)
 {
 translate([xt,yt,zt])difference(){
-cylinder(h = ep,r1 = M,r2 = M,center = true);
-cylinder(h = 1.1*ep,r1 = M/2,r2 = M/2,center = true);
+cylinder(h = ep,r = M+1,center = true);
+cylinder(h = 1.1*ep,r = M/2+0.2,center = true);
 }
 }
 //Module vis
@@ -101,4 +101,19 @@ cylinder(h = l,r1 = M/2,r2 = M/2,center = true);
 if (haut) {translate([0,0,((l/2)+(k/2))])hexa(M,k, x, 0, 0,0);}
 else {translate([0,0,-((l/2)+(k/2))])hexa(M,k, x, 0, 0,0);}
 }
+}
+
+
+//Module Entretoise ronde
+//Di est le diametre int
+//De est le diametre ext
+//lr est la longueur
+//xt, yt, zt sont les coordonnées
+module ent_R(Di,De, lr, xt, yt,zt)
+{
+translate([xt,yt,zt])difference()
+	{
+	rotate([0,0,0])cylinder(r=De/2,h=lr, center = true);
+	rotate([0,0,0])cylinder(r=Di/2,h=lr+2, center = true);
+	}
 }
