@@ -22,11 +22,11 @@ translate([28/25,19/25.4,0])scale([1/25.4,1/25.4,1/25.4])cube([2,8,10],center=tr
 translate([0,38/25.4,0])scale([1/25.4,1/25.4,1/25.4])cube([100,20,10],center=true);//decoupe shield*/
 minkowski() 
 {
-translate([0,19/25.4,0])scale([1/25.4,1/25.4,1/25.4])cube([51-2,9-2,10-2],center=true);//trou batterie
+translate([0,20/25.4,0])scale([1/25.4,1/25.4,1/25.4])cube([51-2,9-2,10-2],center=true);//trou batterie
 sphere(1/25.4);
 }
-translate([6/25.4,30.5/25.4,0])scale([1/25.4,1/25.4,1/25.4])cylinder(r=1.15,h=5,center=true);
-translate([-6/25.4,30.5/25.4,0])scale([1/25.4,1/25.4,1/25.4])cylinder(r=1.15,h=5,center=true);
+translate([6/25.4,31.5/25.4,0])scale([1/25.4,1/25.4,1/25.4])cylinder(r=1.15,h=5,center=true);
+translate([-6/25.4,31.5/25.4,0])scale([1/25.4,1/25.4,1/25.4])cylinder(r=1.15,h=5,center=true);
 /*translate([-28/25.4,30/25.4,0])scale([1/25.4,1/25.4,1/25.4])cylinder(r=1.15,h=5,center=true);
 translate([-28/25.4,20/25.4,0])scale([1/25.4,1/25.4,1/25.4])cylinder(r=1.15,h=5,center=true);*/
 }//difference
@@ -39,12 +39,12 @@ translate([0,0,0.185])linear_extrude(height = 0.44, center = true, convexity = 1
 //color(rouge)translate([0,-0.1,0.165])linear_extrude(height = 0.28, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/MKR1010-shield.dxf", layer = "bat");}
 #color(rouge)minkowski() 
 {
-translate([0,19/25.4,5/25.4])rotate([90,0,0])scale([1/25.4,1/25.4,1/25.4])cube([50-6,29-6,8-6],center=true);//position verticale
+translate([0,20/25.4,5.2/25.4])rotate([90,0,0])scale([1/25.4,1/25.4,1/25.4])cube([50-6,29-6,8-6],center=true);//position verticale
 sphere(3/25.4);
 }
 
 //Capteur de température (7)
-translate([-12/25.4,14/25.4,3/25.4])scale([0.5/25.4,0.5/25.4,0.5/25.4])rotate([0,0,90]){import("capteur.stl");}
+translate([0/25.4,15/25.4,3/25.4])scale([0.5/25.4,0.5/25.4,0.5/25.4])rotate([0,0,90]){import("capteur.stl");}
 
 //Boutons ()
 color(bleu)translate([10/25.4,-40/25.4,0.05])scale([1/25.4,1/25.4,1/25.4])cube([8,4,2],center=true);
