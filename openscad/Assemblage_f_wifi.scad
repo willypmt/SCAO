@@ -7,6 +7,7 @@ use <MKR1010.scad>
 use <MKR1010-shield.scad>
 use <ent-fixation.scad>
 use <jupe_wifi.scad>
+use <Cable T.scad>
 //Définition des couleurs
 orange=[233/255, 93/255, 15/255];
 vert=[151/255, 191/255, 13/255];
@@ -153,4 +154,14 @@ translate([0,0,hauteur-27])rotate([0,0,-180])scale([25.4,25.4,25.4])
 {
 shield(); 
 translate([0,0,0.45])MKR();
+}
+//Cable USB ()
+translate([43,0,hauteur-14])rotate([0,0,0])color(gris){import("Cable USB.stl");}
+//Cable du thermometre
+translate([0,0,hauteur-21])rotate([0,0,90])color(vert)
+{
+CableT1();
+translate([0,1,1])CableT1();
+translate([0,2,2])CableT1();
+translate([0,0,-2])CableT2(); 
 }

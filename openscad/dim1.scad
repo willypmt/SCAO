@@ -21,3 +21,4 @@ R=37.15;//Rayon du cercle de revolution du tore
 //---------------CHANGEMENT DE CI = CONSERVATION DES VALEURS POUR LA JUPE-------------------
 x1=2.25*CC;//entre axes des trous de fixation du CI
 y1=0.8*CC;//entre axes des trous de fixation du CI
+
