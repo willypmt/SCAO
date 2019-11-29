@@ -15,6 +15,7 @@ gris=[112/255, 113/255, 115/255];
 noir=[0/255, 0/255, 0/255];
 bleu=[51/255, 51/255, 255/255];
 blanc=[255/255, 255/255, 255/255];
+rouge=[255/255, 0/255, 0/255];
 
 //couvercle (20) sous l'entretoise en alu
 translate([0,0,z21+$t*(z21_e-z21)])color( [190/255, 190/255, 190/255]){import("Couvercle.stl");}
@@ -156,12 +157,14 @@ shield();
 translate([0,0,0.45])MKR();
 }
 //Cable USB ()
-translate([43,0,hauteur-14])rotate([0,0,0])color(gris){import("Cable USB.stl");}
+#translate([43,0,hauteur-14])rotate([0,0,0])color(gris){import("Cable USB.stl");}
 //Cable du thermometre
-translate([0,0,hauteur-21])rotate([0,0,90])color(vert)
+translate([0,0,hauteur-21])rotate([0,0,90])
 {
-CableT1();
-translate([0,1,1])CableT1();
-translate([0,2,2])CableT1();
-translate([0,0,-2])CableT2(); 
+color(vert)CableT1();
+color(bleu)translate([0,0.7,0.5])CableT1();
+color(rouge)translate([0,1.4,1])CableT1();
+color(vert)translate([0,0,-2])CableT2(); 
+color(bleu)translate([0.5,0.7,-2])CableT2(); 
+color(rouge)translate([0.5,1.4,-2])CableT2(); 
 }
