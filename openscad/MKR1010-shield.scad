@@ -47,7 +47,7 @@ sphere(3/25.4);
 }
 
 //Capteur de température (7)
-translate([0/25.4,14.5/25.4,7/25.4])scale([1/25.4,1/25.4,1/25.4])rotate([0,0,90]){import("capteur.stl");}
+translate([0/25.4,14.5/25.4,7/25.4])scale([1/25.4,1/25.4,1/25.4])rotate([-90,0,90]){import("capteur.stl");}
 
 //Boutons ()
 /*color(bleu)translate([10/25.4,-40/25.4,0.05])scale([1/25.4,1/25.4,1/25.4])cube([8,4,2],center=true);
@@ -55,4 +55,3 @@ color(vert)translate([0/25.4,-40/25.4,0.05])scale([1/25.4,1/25.4,1/25.4])cube([8
 color(blanc)translate([-10/25.4,-40/25.4,0.05])scale([1/25.4,1/25.4,1/25.4])cube([8,4,2],center=true);*/
 
 } //module
-

@@ -1,26 +1,37 @@
-    $fn=100;
+$fn=100;
 C=5; //rayon rotation
-Diam=1/2;//Diametre cable
-Lg=38;//longueur partie centre
-A=8;//longueur partie prise
+Diam=1;//Diametre cable
+Lg=39;//éloignement
+A=11;//longueur partie prise
 module CableT1()
 {
-rotate([90,0,0]) cylinder(r=Diam,h=Lg,center=true);//Raccordement 1
-translate([0,Lg/2,-C])rotate([0,-90,0])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude jupe haut
-translate([0,Lg/2+C,-16])rotate([0,0,0]) cylinder(r=Diam,h=22,center=true);//Raccordement jupe
-rotate([0,90,0])translate([22+C,Lg/2,0])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude jupe bas
-translate([C,-Lg/2,0])rotate([0,0,180])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude prise 1
-translate([C+A/2,-Lg/2-C,0]) rotate([0,90,0]) cylinder(r=Diam,h=A,center=true);//Raccordement prise
-translate([A+C,-Lg/2-C,-C])rotate([90,0,0])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude prise 2
+translate([A+2*C,Lg/2+C,0])rotate([0,0,0]) cylinder(r=Diam,h=2*C,center=true);//Raccordement prise 1
+translate([A+2*C,Lg/2+2*C,C])rotate([0,-90,180])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude 1
+translate([A+2*C,Lg/2+2*C,C])rotate([0,-90,0])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude 2
+translate([A+C,Lg/2+3*C,C])rotate([90,90,0])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude 3
+translate([A/2+C,Lg/2+3*C,0]) rotate([0,90,0]) cylinder(r=Diam,h=A,center=true);//Raccordement prise 2
+translate([C,Lg/2+2*C,0])rotate([0,0,90])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude 4
+translate([0,Lg/2+2*C,-C])rotate([0,-90,180])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude 5
+translate([0,Lg/2+C,-16])rotate([0,0,0]) cylinder(r=Diam,h=22,center=true);//Raccordement jupe 1
+rotate([0,90,0])translate([22+C,Lg/2,0])rotate_extrude(angle = 90,convexity = 10)translate([C, 0, 0])circle(r = Diam);//coude 6
+translate([0,Lg/2,-22-2*C])rotate([90,0,0]) cylinder(r=Diam,h=4,center=false);//Raccordement prise 5
 }
 
+D=5; //rayon rotation
+Ld=23;//éloignement
+B=11;//longueur partie prise
 module CableT2()
 {
-rotate([90,0,0])translate([-13,0,2])cylinder(r=Diam,h=15,center=false);//Raccordement 1
-translate([-15,-2,0])rotate_extrude(angle = 90,convexity = 10)translate([2, 0, 0])circle(r = Diam);//coude T2-1
-translate([-11,-17,0])rotate([0,0,180])rotate_extrude(angle = 90,convexity = 10)translate([2, 0, 0])circle(r = Diam);//coude T2-2 
-  translate([-11,-19,0]) rotate([0,90,0]) cylinder(r=Diam,h=27,center=false);//Raccordement 2  
-    translate([16,-19,-2])rotate([90,0,0])rotate_extrude(angle = 90,convexity = 10)translate([2, 0, 0])circle(r = Diam);//coude T2-3
+translate([B+2*C,Ld/2+D,0])rotate([0,0,0]) cylinder(r=Diam,h=2*D,center=true);//Raccordement prise 1
+translate([B+2*D,Ld/2+2*D,D])rotate([0,-90,180])rotate_extrude(angle = 90,convexity = 10)translate([D, 0, 0])circle(r = Diam);//coude 1
+translate([B+2*C,Ld/2+2*D+B,2*D])rotate([90,0,0]) cylinder(r=Diam,h=B,center=false);//Raccordement prise 2
+translate([B+D,Ld/2+2*D+B,2*D])rotate([0,0,0])rotate_extrude(angle = 90,convexity = 10)translate([D, 0, 0])circle(r = Diam);//coude 2
+translate([-2*D,Ld/2+3*D+B,2*D]) rotate([0,90,0]) cylinder(r=Diam,h=(B+D)+2*D,center=false);//Raccordement prise 3
+translate([-2*D,Ld/2+2*D+B,2*D])rotate([0,0,90])rotate_extrude(angle = 90,convexity = 10)translate([D, 0, 0])circle(r = Diam);//coude 3
+translate([-3*D,Ld/2+2*D+B,D])rotate([0,-90,180])rotate_extrude(angle = 90,convexity = 10)translate([D, 0, 0])circle(r = Diam);//coude 4
+translate([-3*D,Ld/2+B,D])rotate([0,90,0])rotate_extrude(angle = 90,convexity = 10)translate([D, 0, 0])circle(r = Diam);//coude 5
+translate([-3*D,Ld/2+B,0])rotate([90,0,0]) cylinder(r=Diam,h=2*B,center=false);//Raccordement prise 4
+
 }
 CableT1(); 
 CableT2(); 

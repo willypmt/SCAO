@@ -159,12 +159,12 @@ translate([0,0,0.45])MKR();
 //Cable USB ()
 #translate([43,0,hauteur-14])rotate([0,0,0])color(gris){import("Cable USB.stl");}
 //Cable du thermometre
-translate([0,0,hauteur-21])rotate([0,0,90])
+translate([0,0,hauteur-22])rotate([0,0,90])
 {
 color(vert)CableT1();
-color(bleu)translate([0,0.7,0.5])CableT1();
-color(rouge)translate([0,1.4,1])CableT1();
-color(vert)translate([0,0,-2])CableT2(); 
-color(bleu)translate([0.5,0.7,-2])CableT2(); 
-color(rouge)translate([0.5,1.4,-2])CableT2(); 
+color(bleu)translate([0,2,0])CableT1();
+color(rouge)translate([0,-2,0])CableT1();
+color(vert)translate([0,0,2])CableT2(); 
+color(bleu)translate([0,2,2])CableT2(); 
+color(rouge)translate([0,-2,2])CableT2(); 
 }
