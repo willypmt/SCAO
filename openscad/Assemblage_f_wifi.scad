@@ -79,36 +79,6 @@ rond_M(3, 0.5, -L2/2,0, hauteur-26.1);
 color( gris) Ecrou(3,8, 5.5, L2/2, l2/2,15.8);
 color( gris) Ecrou(3,8, 5.5, L2/2, -l2/2,15.8);
 color( gris) Ecrou(3,8, 5.5, -L2/2, 0,15.8);
-//color( gris) Ecrou(3,10, 5.5, -L2/2, -l2/2,z5+$t*(z5_e-z5));
-/*//Rondelle M2 (10) 4 rondelles sur circuit imp
-rond_M(2, 1, x1/2,y1/2, 22.7);
-rond_M(2, 1, -x1/2,y1/2, 22.7);
-rond_M(2, 1, x1/2,-y1/2, 22.7);
-rond_M(2, 1, -x1/2,-y1/2, 22.7);
-//Rondelle M2 (10) 8 rondelles sur MKR WIFI
-rond_M(2, 1, x1/2,y1/2, 31.7);
-rond_M(2, 1, -x1/2,y1/2, 31.7);
-rond_M(2, 1, x1/2,-y1/2, 31.7);
-rond_M(2, 1, -x1/2,-y1/2, 31.7);
-rond_M(2, 1, x1/2,y1/2, 34.1);
-rond_M(2, 1, -x1/2,y1/2, 34.1);
-rond_M(2, 1, x1/2,-y1/2, 34.1);
-rond_M(2, 1, -x1/2,-y1/2, 34.1);
-//Entretoise M2 mâle (22) 4 entre le circuit imp et le MKR WIFI
-color( gris)ent_M(2,8,0,4,true,x1/2,y1/2,27.2);
-color( gris)ent_M(2,8,0,4,true,-x1/2,y1/2,27.2);
-color( gris)ent_M(2,8,0,4,true,x1/2,-y1/2,27.2);
-color( gris)ent_M(2,8,0,4,true,-x1/2,-y1/2,27.2);
-//Entretoise M2 (21) 4 entre le MKR WIFI et le TOP
-color( gris)ent_M(2,10,5,4,true,x1/2,y1/2,39.7);
-color( gris)ent_M(2,10,5,4,true,-x1/2,y1/2,39.7);
-color( gris)ent_M(2,10,5,4,true,x1/2,-y1/2,39.7);
-color( gris)ent_M(2,10,5,4,true,-x1/2,-y1/2,39.7);
-//Vis M2 (9) 4 vis sous le circuit imp
-color( gris)vis_M(2, 5, 1.5, false, x1/2,y1/2,23.3);
-color( gris)vis_M(2, 5, 1.5, false, x1/2,-y1/2,23.3);
-color( gris)vis_M(2, 5, 1.5, false, -x1/2,y1/2,23.3);
-color( gris)vis_M(2, 5, 1.5, false, -x1/2,-y1/2,23.3);*/
 //Vis M2 (9) 4 vis sur le TOP
 color( gris)vis_M(2, 30, 1.5, true, x1/2,y1/2, hauteur-18);
 color( gris)vis_M(2, 30, 1.5, true, x1/2,-y1/2, hauteur-18);
