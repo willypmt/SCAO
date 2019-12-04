@@ -16,7 +16,6 @@ noir=[0/255, 0/255, 0/255];
 bleu=[51/255, 51/255, 255/255];
 blanc=[255/255, 255/255, 255/255];
 rouge=[255/255, 0/255, 0/255];
-
 //couvercle (20) sous l'entretoise en alu
 translate([0,0,z21+$t*(z21_e-z21)])color( [190/255, 190/255, 190/255]){import("Couvercle.stl");}
 //Jupe (8)
@@ -104,11 +103,6 @@ rond_M(2, 0.3, x1/2,y1/2, hauteur-27.8);
 rond_M(2, 0.3, -x1/2,y1/2, hauteur-27.8);
 rond_M(2, 0.3, x1/2,-y1/2, hauteur-27.8);
 rond_M(2, 0.3, -x1/2,-y1/2, hauteur-27.8);
-//Equerre ()
-//translate([0,-25,17])rotate([0,0,0])color(bleu){import("Equerre.stl");}
-decalage=-29.5;
-translate([0,decalage,hauteur-25.4])rotate([0,0,0])color(blanc){import("Equerre.stl");}
-*translate([0,decalage,hauteur-28.6])rotate([0,180,0])color(blanc){import("Equerre.stl");}
 //Vis M2 (9) 2 vis sur l'équerre
 color( gris)vis_M(2, 6, 1.5, true, 6,decalage-2, hauteur-27.4);
 color( gris)vis_M(2, 6, 1.5, true, -6,decalage-2, hauteur-27.4);
@@ -119,7 +113,7 @@ Ecrou(2, 1.6, 4,-6,decalage-2, hauteur-28.4);
 hauteur=48;
 #translate([0,0,hauteur])rotate([0,0,-90])color(orange){import("top.stl");}
 //LOGO (7) monté sur le TOP
-translate([0,0,hauteur+7])rotate([0,0,90])color(vert){import("Logo.stl");}
+translate([0,0,hauteur+7])rotate([0,0,-90])color(vert){import("Logo.stl");}
 //SHIELD (Batterie(4) + circuit imp(2)) + MKR (3)
 translate([0,0,hauteur-27])rotate([0,0,-180])scale([25.4,25.4,25.4])
 {
