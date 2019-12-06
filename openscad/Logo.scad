@@ -62,7 +62,7 @@ difference()
 	}
 	//translate([0,0,e])rotate([0,0,90])scale([0.06,0.06,1])linear_extrude(height = 5, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/cuisinier.dxf", layer = "0");};
 	translate([10,-18,e])rotate([0,0,90])scale([1,1,1])linear_extrude(height = 4, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/a3c.dxf", layer = "0");};
-	translate([10,-18,1.2*e])rotate([0,0,90])scale([1,1,1])linear_extrude(height = 4, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/a3c.dxf", layer = "Etiquette");};
+	*translate([10,-18,1.2*e])rotate([0,0,90])scale([1,1,1])linear_extrude(height = 4, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/a3c.dxf", layer = "Etiquette");};
 }
 
 L=y1;

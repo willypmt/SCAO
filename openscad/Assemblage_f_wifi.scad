@@ -8,6 +8,7 @@ use <MKR1010-shield.scad>
 use <ent-fixation.scad>
 use <jupe_wifi.scad>
 use <Cable T.scad>
+use <Sangle.scad>
 //Définition des couleurs
 orange=[233/255, 93/255, 15/255];
 vert=[151/255, 191/255, 13/255];
@@ -131,4 +132,10 @@ color(rouge)translate([0,-2,0])CableT1();
 color(vert)translate([0,0,2])CableT2(); 
 color(bleu)translate([0,2,2])CableT2(); 
 color(rouge)translate([0,-2,2])CableT2(); 
+}
+//Sangle batterie
+translate([0,32.5,hauteur-23])rotate([90,0,90])
+{
+color(vert)Sangle();
+translate([0,0,-20])color(vert)Sangle();
 }

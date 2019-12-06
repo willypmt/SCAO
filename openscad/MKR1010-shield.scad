@@ -13,7 +13,7 @@ module shield()
 {
 
 //PCB
-*color(orange)translate([54.28/25.4,-63.175/25.4,-0.7/25.4])scale([1/25.4,1/25.4,1/25.4])rotate([0,0,180]){import("PCB.stl");}
+#color(orange)translate([54.28/25.4,-63.175/25.4,-0.7/25.4])scale([1/25.4,1/25.4,1/25.4])rotate([0,0,180]){import("PCB.stl");}
 difference() 
 {
 color(orange)linear_extrude(height = 0.05, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/MKR1010-shield.dxf", layer = "shield");}
@@ -29,14 +29,14 @@ translate([0,0,0.185])linear_extrude(height = 0.44, center = true, convexity = 1
 
 //Batterie 
 //color(rouge)translate([0,-0.1,0.165])linear_extrude(height = 0.28, center = true, convexity = 10, scale = 1.0) {import(file = "../LibreCAD/MKR1010-shield.dxf", layer = "bat");}//
-#color(rouge)minkowski() 
+color(blanc)minkowski() 
 {
 translate([10/25.4,-34/25.4,5/25.4])rotate([0,0,0])scale([1/25.4,1/25.4,1/25.4])cube([50-6,29-6,8-6],center=true);//position verticale
 sphere(3/25.4);
 }
 
 //Capteur de température (7)
-translate([10/25.4,-28/25.4,11/25.4])scale([1/25.4,1/25.4,1/25.4])rotate([-90,90,180]){import("capteur.stl");}
+translate([11/25.4,-32/25.4,10.5/25.4])scale([1/25.4,1/25.4,1/25.4])rotate([-90,90,180]){import("capteur.stl");}
 
 //Boutons ()
 /*color(bleu)translate([10/25.4,-40/25.4,0.05])scale([1/25.4,1/25.4,1/25.4])cube([8,4,2],center=true);
